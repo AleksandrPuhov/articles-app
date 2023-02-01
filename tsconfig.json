@@ -9,7 +9,7 @@
     // параметр итоговых файлов
     "target": "es5",
 
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
     "baseUrl": ".",

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack serve --env PORT=3000"
+    "start": "webpack serve --env PORT=3000",
+    "build:prod": "webpack --env mode=production",
+    "build:dev": "webpack --env mode=development"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
