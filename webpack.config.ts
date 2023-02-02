@@ -9,6 +9,10 @@ export default (env: IBuildEnv) => {
     entry: path.resolve(__dirname, "src", "index.tsx"),
     build: path.resolve(__dirname, "build"),
     html: path.resolve(__dirname, "public", "index.html"),
+    src: path.resolve(__dirname, "src"),
+    app: path.resolve(__dirname, "src", "app"),
+    pages: path.resolve(__dirname, "src", "pages"),
+    shared: path.resolve(__dirname, "src", "shared"),
   };
 
   const mode = "development";

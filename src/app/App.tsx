@@ -4,24 +4,23 @@ import { Link } from "react-router-dom";
 
 import "./styles/index.scss";
 
-import Title from "./components/Title";
-import { AboutPageLazy } from "./pages/AboutPage/AboutPage.lazy";
-import { MainPageLazy } from "./pages/MainPage/MainPage.lazy";
-import { useThemes } from "./theme/useThemes";
+import { useThemes } from "./providers/ThemeProvider";
+import { classNames } from "@shared/lib/classNames/classNames";
+import { AboutPage } from "@pages/AboutPage";
+import { MainPage } from "@pages/MainPage";
 
 const App = () => {
   const { theme, toggleTheme } = useThemes();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames("app", {}, [theme])}>
       <button onClick={toggleTheme}>theme toggle</button>
-      <Title />
       <Link to={"/"}>Main</Link>
       <Link to={"/about"}>About</Link>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/about" element={<AboutPageLazy />} />
-          <Route path="/" element={<MainPageLazy />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/" element={<MainPage />} />
         </Routes>
       </Suspense>
     </div>
