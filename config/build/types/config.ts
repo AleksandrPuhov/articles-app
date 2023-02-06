@@ -8,6 +8,7 @@ export interface IBuildPaths {
   app: string;
   pages: string;
   shared: string;
+  widgets: string;
 }
 
 export interface IBuildEnv {

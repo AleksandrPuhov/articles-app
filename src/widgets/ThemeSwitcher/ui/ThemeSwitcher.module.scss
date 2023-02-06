@@ -1,0 +1,14 @@
+.switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapp {
+  width: 30px;
+  height: 30px;
+
+  & svg {
+    stroke: var(--primary-color);
+  }
+}

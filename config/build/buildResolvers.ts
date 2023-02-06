@@ -6,6 +6,7 @@ export const buildResolvers = ({
   app,
   pages,
   shared,
+  widgets,
 }: IBuildPaths): webpack.ResolveOptions => {
   return {
     extensions: [".tsx", ".ts", ".js"],
@@ -15,6 +16,7 @@ export const buildResolvers = ({
       "@app": app,
       "@pages": pages,
       "@shared": shared,
+      "@widgets": widgets,
     },
   };
 };
