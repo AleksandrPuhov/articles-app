@@ -3,9 +3,9 @@
   height: var(--navbar-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 15px;
-  background-color: var(--bg-navbar-color);
+  background-color: var(--bg-secondary-color);
   padding: 10px 20px;
 }
 .navbarLinks {

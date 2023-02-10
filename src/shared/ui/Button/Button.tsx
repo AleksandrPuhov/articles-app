@@ -1,14 +1,13 @@
-import { ButtonHTMLAttributes, FC } from "react";
-import { Link, LinkProps } from "react-router-dom";
+import { ButtonHTMLAttributes, FC } from 'react';
 
-import cls from "./Button.module.scss";
+import { classNames } from '@shared/lib/classNames/classNames';
 
-import { classNames } from "@shared/lib/classNames/classNames";
+import cls from './Button.module.scss';
 
 export enum ButtonVariant {
-  CLEAR = "clear",
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
+  CLEAR = 'clear',
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -21,15 +20,15 @@ const Button: FC<ButtonProps> = ({
   children,
   variant = ButtonVariant.PRIMARY,
   ...otherProps
-}) => {
-  return (
-    <button
-      {...otherProps}
-      className={classNames([cls.btn, className, cls[variant]])}
-    >
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button
+    type="button"
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...otherProps}
+    className={classNames([cls.btn, className, cls[variant]])}
+  >
+    {children}
+  </button>
+);
 
 export default Button;
