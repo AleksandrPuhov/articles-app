@@ -1,23 +1,30 @@
 import { AboutPage } from '@pages/AboutPage';
 import { MainPage } from '@pages/MainPage';
+import { NotFoundPage } from '@pages/NotFoundPage';
 
 export enum AppRoutes {
-  MAIN = 'main',
-  ABOUT = 'about',
+  Main = 'Main',
+  About = 'about',
+  NotFound = 'NotFound',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.Main]: '/',
+  [AppRoutes.About]: '/about',
+  [AppRoutes.NotFound]: '*',
 };
 
 export const routeConfig = [
   {
-    path: RoutePath[AppRoutes.MAIN],
+    path: RoutePath[AppRoutes.Main],
     element: <MainPage />,
   },
   {
-    path: RoutePath[AppRoutes.ABOUT],
+    path: RoutePath[AppRoutes.About],
     element: <AboutPage />,
+  },
+  {
+    path: RoutePath[AppRoutes.NotFound],
+    element: <NotFoundPage />,
   },
 ];
