@@ -20,9 +20,14 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
       className={classNames([cls.sideBar, className], {
         [cls.collapsed]: collapsed,
       })}
+      data-testid="sidebar-testid"
     >
-      <button type="button" onClick={toggleCollapset}>
-        test
+      <button
+        type="button"
+        data-testid="sidebar-toggle-testid"
+        onClick={toggleCollapset}
+      >
+        1
       </button>
       <div className={cls.swichers}>
         <ThemeSwitcher />

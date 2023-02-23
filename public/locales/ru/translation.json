@@ -6,5 +6,9 @@
   "sidebar": {
     "langSwich": "англ"
   },
-  "NotFoundInfo": "Страница не найдена"
+  "NotFoundInfo": "Страница не найдена",
+  "pageError": {
+    "hasError": "Что-то пошло не так.",
+    "reloadBtn": "Перезагрузить страницу"
+  }
 }

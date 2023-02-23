@@ -6,5 +6,9 @@
   "sidebar": {
     "langSwich": "ru"
   },
-  "NotFoundInfo": "Page Not Found"
+  "NotFoundInfo": "Page Not Found",
+  "pageError": {
+    "hasError": "Something went wrong.",
+    "reloadBtn": "Reload the page"
+  }
 }
