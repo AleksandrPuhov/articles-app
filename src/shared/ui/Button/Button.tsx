@@ -7,7 +7,7 @@ import cls from './Button.module.scss';
 export enum ButtonVariant {
   CLEAR = 'clear',
   PRIMARY = 'primary',
-  SECONDARY = 'secondary',
+  OUTLINE = 'outline',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

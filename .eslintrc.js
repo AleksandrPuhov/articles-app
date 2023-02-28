@@ -10,6 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:i18next/recommended',
+    // 'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,7 +25,9 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react/jsx-filename-extension': [
       2,
-      { extensions: ['.js', '.jsx', '.tsx'] },
+      {
+        extensions: ['.js', '.jsx', '.tsx'],
+      },
     ],
     'react/jsx-no-useless-fragment': 'off',
     'import/no-extraneous-dependencies': 'off',
@@ -45,8 +48,12 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': [
       'error',
-      { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
+      {
+        markupOnly: true,
+        ignoreAttribute: ['data-testid', 'to'],
+      },
     ],
+    'implicit-arrow-linebreak': 'off',
   },
   globals: {
     __IS_DEV__: true,
@@ -56,6 +63,13 @@ module.exports = {
       files: ['**/src/**/*.test.{ts,tsx}'],
       rules: {
         'i18next/no-literal-string': 'off',
+      },
+    },
+
+    {
+      files: ['**/src/**/*.stories.{ts,tsx}'],
+      rules: {
+        'react/jsx-props-no-spreading': 'off',
       },
     },
   ],
