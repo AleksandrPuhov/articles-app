@@ -1,8 +1,8 @@
 import webpack from 'webpack';
 
 import { IBuildOptions } from './types/config';
-import { buildScssLoader } from './loaders/buildScssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { buildScssLoader } from './loaders/buildScssLoader';
 
 export const buildLoaders = ({
   isDev,
