@@ -1,15 +1,12 @@
 name: testing
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
-  tests_and_builds:
+  pipeline:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [17.x]
