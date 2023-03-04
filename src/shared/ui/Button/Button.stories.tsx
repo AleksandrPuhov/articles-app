@@ -1,5 +1,5 @@
 import { Theme } from '@app/providers/ThemeProvider';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Button, { ButtonVariant } from './Button';

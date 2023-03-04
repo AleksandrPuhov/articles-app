@@ -1,8 +1,9 @@
 import path from 'path';
-import webpack from 'webpack';
+import webpack, { RuleSetRule } from 'webpack';
 
 import { IBuildPaths } from 'config/build/types/config';
-import { buildscssLoader } from '../build/loaders/buildscssLoader';
+import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import { buildScssLoader } from '../build/loaders/buildScssLoader';
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: IBuildPaths = {
@@ -27,7 +28,16 @@ export default ({ config }: { config: webpack.Configuration }) => {
     '@widgets': paths.widgets,
   };
 
-  config.module.rules.push(buildscssLoader(true));
+  config.module.rules.push(buildScssLoader(true));
+
+  // eslint-disable-next-line no-param-reassign
+  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    if (/svg/.test(rule.test as string)) {
+      return { ...rule, exclude: /\.svg$/i };
+    }
+    return rule;
+  });
+  config.module.rules.push(buildSvgLoader());
 
   return config;
 };

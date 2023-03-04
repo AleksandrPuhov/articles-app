@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export function buildscssLoader(isDev: boolean) {
+export function buildScssLoader(isDev: boolean) {
   return {
     test: /\.s[ac]ss$/i,
     use: [

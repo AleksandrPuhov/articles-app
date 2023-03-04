@@ -29,7 +29,11 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
       >
         1
       </button>
-      <div className={cls.swichers}>
+      <div
+        className={classNames([cls.swichers], {
+          [cls.swichersCollapsed]: collapsed,
+        })}
+      >
         <ThemeSwitcher />
         <LangSwitcher />
       </div>

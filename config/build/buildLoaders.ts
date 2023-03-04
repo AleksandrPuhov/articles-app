@@ -1,16 +1,12 @@
 import webpack from 'webpack';
 
 import { IBuildOptions } from './types/config';
-import { buildscssLoader } from './loaders/buildscssLoader';
+import { buildScssLoader } from './loaders/buildScssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export const buildLoaders = ({
   isDev,
 }: IBuildOptions): webpack.RuleSetRule[] => {
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
-
   const babelLoader = {
     test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
@@ -46,7 +42,9 @@ export const buildLoaders = ({
     exclude: /node_modules/,
   };
 
-  const scssLoader = buildscssLoader(isDev);
+  const svgLoader = buildSvgLoader();
+
+  const scssLoader = buildScssLoader(isDev);
 
   return [fileLoader, svgLoader, babelLoader, typescriptLoader, scssLoader];
 };
