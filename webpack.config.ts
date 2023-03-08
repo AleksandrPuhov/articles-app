@@ -17,7 +17,7 @@ export default (env: IBuildEnv) => {
     widgets: path.resolve(__dirname, 'src', 'widgets'),
   };
 
-  const mode = 'development';
+  const mode = env.mode || 'development';
   const PORT = env.PORT || 3000;
 
   const isDev = mode === 'development';
