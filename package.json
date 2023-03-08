@@ -13,9 +13,9 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "loki test",
     "test:ui:ok": "loki approve",
-    "test:ui:ci": "concurrently --kill-others --raw --success first \"loki --requireReference --reactUri file:./storybook-static\" \"deelay\" ",
-    "storybook": "start-storybook -p 6006 -c config/storybook",
-    "storybook:build": "build-storybook -c config/storybook"
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "storybook": "start-storybook -p 6006 -c config/storybook -c ./config/storybook",
+    "storybook:build": "build-storybook -c config/storybook -c ./config/storybook"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
@@ -96,18 +96,16 @@
     "deelay": "^2.0.0"
   },
   "loki": {
-    "diffingEngine": "pixelmatch",
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "width": 1366,
         "height": 768
       },
       "chrome.iphone7": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "preset": "iPhone 7"
       }
-    },
-    "fetchFailIgnore": "localhost:1234/get"
+    }
   }
 }
