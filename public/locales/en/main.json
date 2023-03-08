@@ -1,3 +1,4 @@
 {
-  "titlePage": "Main Page"
+  "titlePage": "Main Page",
+  "staticDirs": ["../../public"]
 }
