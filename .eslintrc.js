@@ -22,10 +22,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'i18next'],
   rules: {
-    'linebreak-style': [
-      'error',
-      process.platform === 'win32' ? 'windows' : 'unix',
-    ],
+    'linebreak-style': 'off',
     'react/function-component-definition': 'off',
     'react/jsx-filename-extension': [
       2,
