@@ -5,7 +5,10 @@ import DarkIcon from '@shared/assets/icons/icon-moon.svg';
 
 import { classNames } from '@shared/lib/classNames/classNames';
 import { Theme, useThemes } from '@app/providers/ThemeProvider';
-import Button, { ButtonVariant } from '@shared/ui/Button/Button';
+import Button, {
+  ButtonIconSize,
+  ButtonVariant,
+} from '@shared/ui/Button/Button';
 
 import cls from './ThemeSwitcher.module.scss';
 
@@ -20,11 +23,14 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
     <Button
       onClick={toggleTheme}
       className={classNames([cls.switcher, className])}
-      variant={ButtonVariant.CLEAR}
+      variant={ButtonVariant.ICON}
+      iconSize={ButtonIconSize.L}
     >
-      <div className={cls.iconWrapp}>
-        {theme === Theme.NORMAL ? <DarkIcon /> : <LightIcon />}
-      </div>
+      {theme === Theme.NORMAL ? (
+        <DarkIcon className={cls.icon} />
+      ) : (
+        <LightIcon className={cls.icon} />
+      )}
     </Button>
   );
 };

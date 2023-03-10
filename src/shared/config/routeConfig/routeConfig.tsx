@@ -4,7 +4,7 @@ import { NotFoundPage } from '@pages/NotFoundPage';
 
 export enum AppRoutes {
   Main = 'Main',
-  About = 'about',
+  About = 'About',
   NotFound = 'NotFound',
 }
 

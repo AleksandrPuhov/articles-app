@@ -1,0 +1,13 @@
+.arrow {
+  width: 17px;
+  height: 30px;
+  transition: 0.3s;
+
+  & path {
+    fill: var(--primary-color);
+  }
+}
+
+.icon {
+  stroke: var(--primary-color);
+}
