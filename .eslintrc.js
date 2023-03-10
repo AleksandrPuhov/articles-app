@@ -55,6 +55,7 @@ module.exports = {
       },
     ],
     'implicit-arrow-linebreak': 'off',
+    'wrap-iife': 'off',
   },
   globals: {
     __IS_DEV__: true,
