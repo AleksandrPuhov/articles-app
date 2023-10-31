@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import webpack, { WebpackPluginInstance } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -26,9 +26,9 @@ export const buildPlugins = ({
   ];
 
   if (isDev) {
-    plugins.push(new webpack.HotModuleReplacementPlugin());
+    // plugins.push(new webpack.HotModuleReplacementPlugin());
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
   }
-  return plugins;
+  return plugins as WebpackPluginInstance[];
 };

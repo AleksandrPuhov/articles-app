@@ -1,32 +1,43 @@
 import { FC, Suspense } from 'react';
-
-import './styles/index.scss';
-
-import { classNames } from '@shared/lib/classNames/classNames';
-import { NavBar } from '@widgets/NavBar';
-import { SideBar } from '@widgets/SideBar';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Loader from '@shared/ui/Loader/Loader';
-
-import { AppRouter } from './providers/router';
-
-import { useThemes } from './providers/ThemeProvider';
+import Layout from './Layout';
+import { MainPage } from '@pages/MainPage';
+import { AboutPage } from '@pages/AboutPage';
+import { NotFoundPage } from '@pages/NotFoundPage';
 
 const App: FC = () => {
-  const { theme } = useThemes();
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      Component: Layout,
+      children: [
+        {
+          path: '/',
+          Component: MainPage,
+        },
+        {
+          path: 'about',
+          Component: AboutPage,
+        },
+      ],
+    },
+    {
+      path: '*',
+      Component: NotFoundPage,
+    },
+  ]);
 
   return (
-    <div className={classNames(['app', theme])}>
-      <Suspense fallback={<Loader />}>
-        <NavBar />
-        <div className="content-page">
-          <SideBar />
-          <div className="page-wrapper">
-            <AppRouter />
-          </div>
-        </div>
-      </Suspense>
-    </div>
+    <Suspense fallback={<Loader />}>
+      <RouterProvider router={router} />
+      {/* <Routes>
+      {routeConfig.map(({ path, element }) => (
+        <Route key={path} path={path} element={element} />
+      ))}
+    </Routes> */}
+    </Suspense>
   );
 };
 
