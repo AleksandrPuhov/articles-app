@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Loader from "@shared/ui/Loader/Loader";
 import { NotFoundPage } from "@pages/NotFoundPage";
-import { Layout } from "@pages/Layout";
+import { Layout } from "@app/layout/Layout";
 
 const AppRouter: FC = () => {
   const router = createBrowserRouter([
