@@ -1,19 +1,19 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC } from "react";
 
-import { classNames } from '@shared/lib/classNames/classNames';
+import { classNames } from "@shared/lib/classNames/classNames";
 
-import cls from './Button.module.scss';
+import cls from "./Button.module.scss";
 
 export enum ButtonVariant {
-  CLEAR = 'clear',
-  PRIMARY = 'primary',
-  OUTLINE = 'outline',
-  ICON = 'icon',
+  CLEAR = "clear",
+  PRIMARY = "primary",
+  OUTLINE = "outline",
+  ICON = "icon",
 }
 
 export enum ButtonIconSize {
-  M = 'iconSize_m',
-  L = 'iconSize_l',
+  M = "iconSize_m",
+  L = "iconSize_l",
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -36,7 +36,6 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       type="button"
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
       className={classNames([cls.btn, className, cls[variant]], mods)}
     >

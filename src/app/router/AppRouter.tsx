@@ -14,16 +14,14 @@ const AppRouter: FC = () => {
         {
           path: "/",
           async lazy() {
-            let { MainPage } = await import("@pages/MainPage");
+            const { MainPage } = await import("@pages/MainPage");
             return { Component: MainPage };
           },
-          //   element: <MainPage />,
         },
         {
           path: "about",
-          // element: <AboutPage />,
           async lazy() {
-            let { AboutPage } = await import("@pages/AboutPage");
+            const { AboutPage } = await import("@pages/AboutPage");
             return { Component: AboutPage };
           },
         },
