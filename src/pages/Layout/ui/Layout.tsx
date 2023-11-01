@@ -1,21 +1,21 @@
-import { FC, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { FC, Suspense } from "react";
+import { Outlet } from "react-router-dom";
 
-import './styles/index.scss';
+import "./styles/index.scss";
 
-import { classNames } from '@shared/lib/classNames/classNames';
+import { classNames } from "@shared/lib/classNames/classNames";
 // import { NavBar } from '@widgets/NavBar';
 // import { SideBar } from '@widgets/SideBar';
 
-import Loader from '@shared/ui/Loader/Loader';
+import Loader from "@shared/ui/Loader/Loader";
 
-import { useThemes } from './providers/ThemeProvider';
+import { useThemes } from "../../../app/providers/ThemeProvider";
 
-const Layout: FC = () => {
+export const Layout: FC = () => {
   const { theme } = useThemes();
 
   return (
-    <div className={classNames(['app', theme])}>
+    <div className={classNames(["app", theme])}>
       <Suspense fallback={<Loader />}>
         <p>sdfsdfsfsfs</p>
         {/* <NavBar />
@@ -30,5 +30,3 @@ const Layout: FC = () => {
     </div>
   );
 };
-
-export default Layout;
