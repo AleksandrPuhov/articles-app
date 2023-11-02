@@ -1,78 +1,84 @@
-import { Theme } from '@app/providers/ThemeProvider';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import ArrowRight from '@shared/assets/icons/arrow-right.svg';
-import LightIcon from '@shared/assets/icons/icon-sun.svg';
+import { Theme } from "@app/providers/ThemeProvider";
+import { ThemeDecorator } from "@shared/config/storybook/ThemeDecorator";
 
-import cls from './Button.stories.module.scss';
+import ArrowRight from "@shared/assets/icons/arrow-right.svg";
+import LightIcon from "@shared/assets/icons/icon-sun.svg";
 
-import Button, { ButtonIconSize, ButtonVariant } from './Button';
+import cls from "./Button.stories.module.scss";
 
-export default {
-  title: 'shared/Button',
+import Button, { ButtonIconSize, ButtonVariant } from "./Button";
+
+const meta = {
+  title: "shared/Button",
   component: Button,
-} as ComponentMeta<typeof Button>;
+  args: {
+    children: "Test",
+  },
+} satisfies Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Test',
+export const Default: Story = {};
+
+export const Clear: Story = {
+  args: {
+    variant: ButtonVariant.CLEAR,
+  },
 };
 
-export const Clear = Template.bind({});
-Clear.args = {
-  children: 'Test',
-  variant: ButtonVariant.CLEAR,
+export const ClearDark: Story = {
+  args: {
+    variant: ButtonVariant.CLEAR,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const ClearDark = Template.bind({});
-ClearDark.args = {
-  children: 'Test',
-  variant: ButtonVariant.CLEAR,
-};
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Outline = Template.bind({});
-Outline.args = {
-  children: 'Test',
-  variant: ButtonVariant.OUTLINE,
+export const Outline: Story = {
+  args: {
+    variant: ButtonVariant.OUTLINE,
+  },
 };
 
-export const OutlineDark = Template.bind({});
-OutlineDark.args = {
-  children: 'Test',
-  variant: ButtonVariant.OUTLINE,
-};
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const IconSizeM = Template.bind({});
-IconSizeM.args = {
-  children: <ArrowRight className={cls.arrow} />,
-  variant: ButtonVariant.ICON,
-  iconSize: ButtonIconSize.M,
+export const OutlineDark: Story = {
+  args: {
+    variant: ButtonVariant.OUTLINE,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const IconSizeMDark = Template.bind({});
-IconSizeMDark.args = {
-  children: <ArrowRight className={cls.arrow} />,
-  variant: ButtonVariant.ICON,
-  iconSize: ButtonIconSize.M,
-};
-IconSizeMDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const IconSizeL = Template.bind({});
-IconSizeL.args = {
-  children: <LightIcon className={cls.icon} />,
-  variant: ButtonVariant.ICON,
-  iconSize: ButtonIconSize.L,
+export const IconSizeM: Story = {
+  args: {
+    children: <ArrowRight className={cls.arrow} />,
+    variant: ButtonVariant.ICON,
+    iconSize: ButtonIconSize.M,
+  },
 };
 
-export const IconSizeLDark = Template.bind({});
-IconSizeLDark.args = {
-  children: <LightIcon className={cls.icon} />,
-  variant: ButtonVariant.ICON,
-  iconSize: ButtonIconSize.L,
+export const IconSizeMDark: Story = {
+  args: {
+    children: <ArrowRight className={cls.arrow} />,
+    variant: ButtonVariant.ICON,
+    iconSize: ButtonIconSize.M,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
-IconSizeLDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const IconSizeL: Story = {
+  args: {
+    children: <LightIcon className={cls.icon} />,
+    variant: ButtonVariant.ICON,
+    iconSize: ButtonIconSize.L,
+  },
+};
+
+export const IconSizeLDark: Story = {
+  args: {
+    children: <LightIcon className={cls.icon} />,
+    variant: ButtonVariant.ICON,
+    iconSize: ButtonIconSize.L,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};

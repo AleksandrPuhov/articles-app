@@ -1,19 +1,20 @@
-import { Theme } from '@app/providers/ThemeProvider';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import SideBar from './SideBar';
+import { Theme } from "@app/providers/ThemeProvider";
+import { ThemeDecorator } from "@shared/config/storybook/ThemeDecorator";
 
-export default {
-  title: 'widgets/SideBar',
+import SideBar from "./SideBar";
+
+const meta = {
+  title: "widgets/SideBar",
   component: SideBar,
-} as ComponentMeta<typeof SideBar>;
+} satisfies Meta<typeof SideBar>;
 
-const Template: ComponentStory<typeof SideBar> = (args) => (
-  <SideBar {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const SideBarNormal = Template.bind({});
+export const SideBarNormal: Story = {};
 
-export const SideBarDark = Template.bind({});
-SideBarDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const SideBarDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+};

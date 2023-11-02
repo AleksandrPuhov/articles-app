@@ -1,19 +1,20 @@
-import { Theme } from '@app/providers/ThemeProvider';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import NotFoundPage from './NotFoundPage';
+import { Theme } from "@app/providers/ThemeProvider";
+import { ThemeDecorator } from "@shared/config/storybook/ThemeDecorator";
 
-export default {
-  title: 'pages/NotFoundPage',
+import { NotFoundPage } from "./NotFoundPage";
+
+const meta = {
+  title: "pages/NotFoundPage",
   component: NotFoundPage,
-} as ComponentMeta<typeof NotFoundPage>;
+} satisfies Meta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => (
-  <NotFoundPage {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const NotFoundPageNormal = Template.bind({});
+export const NotFoundPageNormal: Story = {};
 
-export const NotFoundPageDark = Template.bind({});
-NotFoundPageDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const NotFoundPageDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+};

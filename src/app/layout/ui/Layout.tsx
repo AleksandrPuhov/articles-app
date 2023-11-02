@@ -6,7 +6,7 @@ import { NavBar } from "@widgets/NavBar";
 import { SideBar } from "@widgets/SideBar";
 import Loader from "@shared/ui/Loader/Loader";
 
-import { useThemes } from "../providers/ThemeProvider";
+import { useThemes } from "../../providers/ThemeProvider";
 
 export const Layout: FC = () => {
   const { theme } = useThemes();
@@ -14,7 +14,6 @@ export const Layout: FC = () => {
   return (
     <div className={classNames(["app", theme])}>
       <Suspense fallback={<Loader />}>
-        <p>Layout</p>
         <NavBar />
         <div className="content-page">
           <SideBar />

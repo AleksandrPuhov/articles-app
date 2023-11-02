@@ -1,19 +1,19 @@
-import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import ArrowRight from '@shared/assets/icons/arrow-right.svg';
+import ArrowRight from "@shared/assets/icons/arrow-right.svg";
 
-import Home from '@shared/assets/icons/home.svg';
-import About from '@shared/assets/icons/about.svg';
+import Home from "@shared/assets/icons/home.svg";
+import About from "@shared/assets/icons/about.svg";
 
-import { classNames } from '@shared/lib/classNames/classNames';
-import { ThemeSwitcher } from '@widgets/ThemeSwitcher';
-import { LangSwitcher } from '@widgets/LangSwitcher';
-import Button, { ButtonVariant } from '@shared/ui/Button/Button';
-import AppLink from '@shared/ui/AppLink/AppLink';
-import { RoutePath } from '@shared/config/routeConfig/routeConfig';
+import { classNames } from "@shared/lib/classNames/classNames";
+import { ThemeSwitcher } from "@widgets/ThemeSwitcher";
+import { LangSwitcher } from "@widgets/LangSwitcher";
+import Button, { ButtonVariant } from "@shared/ui/Button/Button";
+import AppLink from "@shared/ui/AppLink/AppLink";
+import { RoutePath } from "@app/router/routeConfig/routeConfig";
 
-import cls from './SideBar.module.scss';
+import cls from "./SideBar.module.scss";
 
 interface SideBarProps {
   className?: string;
@@ -24,7 +24,7 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
 
   const toggleCollapset = () => setCollapsed((prev) => !prev);
 
-  const { t } = useTranslation('translation', { keyPrefix: 'navbar' });
+  const { t } = useTranslation("translation", { keyPrefix: "navbar" });
 
   return (
     <div
@@ -41,7 +41,7 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
               [cls.pageLinkTextCollapsed]: collapsed,
             })}
           >
-            {t('mainPageLink')}
+            {t("mainPageLink")}
           </span>
         </AppLink>
         <AppLink to={RoutePath.About} className={cls.pageLink}>
@@ -51,7 +51,7 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
               [cls.pageLinkTextCollapsed]: collapsed,
             })}
           >
-            {t('aboutPageLink')}
+            {t("aboutPageLink")}
           </span>
         </AppLink>
       </div>

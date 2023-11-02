@@ -1,17 +1,20 @@
-import { Theme } from '@app/providers/ThemeProvider';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import Loader from './Loader';
+import { Theme } from "@app/providers/ThemeProvider";
+import { ThemeDecorator } from "@shared/config/storybook/ThemeDecorator";
 
-export default {
-  title: 'shared/Loader',
+import Loader from "./Loader";
+
+const meta = {
+  title: "shared/Loader",
   component: Loader,
-} as ComponentMeta<typeof Loader>;
+} satisfies Meta<typeof Loader>;
 
-const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const LoaderNormal = Template.bind({});
+export const LoaderNormal: Story = {};
 
-export const LoaderDark = Template.bind({});
-LoaderDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const LoaderDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
