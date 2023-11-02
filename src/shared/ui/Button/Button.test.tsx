@@ -1,16 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import Button, { ButtonVariant } from './Button';
+import { render, screen } from "@testing-library/react";
+import Button, { ButtonVariant } from "./Button";
 
-describe('Button', () => {
-  test('Test default button', () => {
+describe("Button", () => {
+  test("Test default button", () => {
     render(<Button>Test</Button>);
 
-    expect(screen.getByText('Test')).toBeInTheDocument();
+    expect(screen.getByText("Test")).toBeInTheDocument();
   });
-  test('Test button variant = CLEAR', () => {
+  test("Test button variant = CLEAR", () => {
     render(<Button variant={ButtonVariant.CLEAR}>Test</Button>);
 
-    expect(screen.getByText('Test')).toHaveClass('clear');
-    screen.debug();
+    expect(screen.getByText("Test")).toHaveClass("clear");
   });
 });
