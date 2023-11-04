@@ -1,8 +1,6 @@
 import { FC, ReactNode, useState } from "react";
 import { usePopper } from "react-popper";
 
-// import cls from "./Popover.module.scss";
-
 import { Portal } from "../Portal/Portal";
 
 interface PopoverProps {

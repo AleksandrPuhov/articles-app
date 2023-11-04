@@ -4,13 +4,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-
   padding: 36px;
   z-index: var(--popup-z-index);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .overlay {
   position: absolute;
   top: 0;
