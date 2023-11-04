@@ -1,7 +1,5 @@
 import { FC } from "react";
 
-import "./styles/index.scss";
-
 import "@shared/config/i18n/i18n";
 
 import { ErrorBoundary } from "@app/providers/ErrorBoundary";

@@ -1,7 +1,8 @@
 {
   "navbar": {
     "mainPageLink": "Главная",
-    "aboutPageLink": "О Сайте"
+    "aboutPageLink": "О Сайте",
+    "signIn": "Войти"
   },
   "sidebar": {
     "langSwich": "англ"

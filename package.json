@@ -34,6 +34,7 @@
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.2",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
+    "@popperjs/core": "^2.11.8",
     "@storybook/addon-essentials": "7.5.2",
     "@storybook/addon-interactions": "7.5.2",
     "@storybook/addon-links": "7.5.2",
@@ -63,6 +64,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "loki": "^0.33.0",
     "mini-css-extract-plugin": "^2.7.6",
+    "react-popper": "^2.3.0",
     "react-refresh": "^0.14.0",
     "reg-cli": "^0.17.7",
     "sass": "^1.69.5",
@@ -95,4 +97,3 @@
     }
   }
 }
-

@@ -1,7 +1,8 @@
 {
   "navbar": {
     "mainPageLink": "Main",
-    "aboutPageLink": "About"
+    "aboutPageLink": "About",
+    "signIn": "Sign In"
   },
   "sidebar": {
     "langSwich": "ru"

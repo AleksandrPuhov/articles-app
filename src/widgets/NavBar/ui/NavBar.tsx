@@ -1,11 +1,11 @@
-import { FC } from "react";
+import { FC, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { classNames } from "@shared/lib/classNames/classNames";
-import AppLink, { AppLinkVariant } from "@shared/ui/AppLink/AppLink";
-import { RoutePath } from "@app/router/routeConfig/routeConfig";
 
 import cls from "./NavBar.module.scss";
+import { Modal } from "@shared/ui/Modal/Modal";
+import Button, { ButtonVariant } from "@shared/ui/Button/Button";
 
 interface NavBarProps {
   className?: string;
@@ -14,14 +14,25 @@ interface NavBarProps {
 const NavBar: FC<NavBarProps> = ({ className }) => {
   const { t } = useTranslation("translation", { keyPrefix: "navbar" });
 
+  const [isAuthModal, setIsAuthModal] = useState(false);
+
+  const onToggleModal = useCallback(() => {
+    setIsAuthModal((prev) => !prev);
+  }, []);
+
   return (
     <div className={classNames([cls.navbar, className])}>
-      <div className={cls.navbarLinks}>
-        <AppLink to={RoutePath.Main}>{t("mainPageLink")}</AppLink>
-        <AppLink to={RoutePath.About} variant={AppLinkVariant.SECONDARY}>
-          {t("aboutPageLink")}
-        </AppLink>
-      </div>
+      <Button
+        variant={ButtonVariant.OUTLINE}
+        className={cls.links}
+        onClick={onToggleModal}
+      >
+        {t("signIn")}
+      </Button>
+
+      <Modal onClose={() => setIsAuthModal(false)} isOpened={isAuthModal}>
+        <p>Test Text</p>
+      </Modal>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 :root {
-  --font-family-main: 'Poppins', sans-serif;
+  --font-family-main: "Poppins", sans-serif;
 
   // размеры шрифтов
   --font-size-m: 16px;
@@ -17,4 +17,7 @@
   // кнопка
   --btn-icon-size-m: 30px;
   --btn-icon-size-l: 40px;
+
+  // z-index
+  --popup-z-index: 10;
 }
