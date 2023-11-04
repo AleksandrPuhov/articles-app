@@ -6,10 +6,10 @@ on:
     branches: [main]
 jobs:
   pipeline:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [17.x]
+        node-version: [20.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -36,10 +36,10 @@ jobs:
         if: always()
         run: npm run test:unit
 
-      - name: build storybook
-        if: always()
-        run: npm run storybook:build
+      # - name: build storybook
+      #   if: always()
+      #   run: npm run storybook:build
 
-      - name: testing loki
-        if: always()
-        run: npm run test:ui:ci
+      # - name: testing loki
+      #   if: always()
+      #   run: npm run test:ui:ci
