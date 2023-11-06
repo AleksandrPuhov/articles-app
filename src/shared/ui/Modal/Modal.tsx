@@ -1,8 +1,10 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useCallback, useRef, useState } from "react";
 
 import cls from "./Modal.module.scss";
 
 import { OverlayingPopup } from "../OverlayingPopup/OverlayingPopup";
+import { classNames } from "@shared/lib/classNames/classNames";
+import { useMount } from "@shared/hooks/useMount";
 
 interface ModalProps {
   children: ReactNode;
@@ -11,13 +13,20 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ children, onClose, isOpened }) => {
-  if (!isOpened) {
+  const { mounted } = useMount({ opened: isOpened });
+
+  if (!isOpened && !mounted) {
     return null;
   }
 
+  const mods: Record<string, boolean> = {
+    [cls.modalOpened]: isOpened && !!mounted,
+    [cls.modalClosing]: !isOpened && !!mounted,
+  };
+
   return (
-    <OverlayingPopup onClose={onClose} isOpened={isOpened}>
-      <div className={cls.modal}>{children}</div>
+    <OverlayingPopup onClose={onClose} isOpened={!!isOpened || !!mounted}>
+      <div className={classNames([cls.modal], mods)}>{children}</div>
     </OverlayingPopup>
   );
 };
