@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback, useRef, useState } from "react";
+import { FC, ReactNode } from "react";
 
 import cls from "./Modal.module.scss";
 
