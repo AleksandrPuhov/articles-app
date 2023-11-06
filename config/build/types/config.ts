@@ -1,4 +1,4 @@
-export type IBuildMode = 'development' | 'production';
+export type IBuildMode = "development" | "production";
 
 export interface IBuildPaths {
   entry: string;
@@ -9,6 +9,7 @@ export interface IBuildPaths {
   pages: string;
   shared: string;
   widgets: string;
+  entities: string;
 }
 
 export interface IBuildEnv {

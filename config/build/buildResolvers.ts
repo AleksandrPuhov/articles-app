@@ -1,6 +1,6 @@
-import webpack from 'webpack';
+import webpack from "webpack";
 
-import { IBuildPaths } from './types/config';
+import { IBuildPaths } from "./types/config";
 
 export const buildResolvers = ({
   src,
@@ -8,14 +8,16 @@ export const buildResolvers = ({
   pages,
   shared,
   widgets,
+  entities,
 }: IBuildPaths): webpack.ResolveOptions => ({
-  extensions: ['.tsx', '.ts', '.js'],
+  extensions: [".tsx", ".ts", ".js"],
   preferAbsolute: true,
-  modules: [src, 'node_modules'],
+  modules: [src, "node_modules"],
   alias: {
-    '@app': app,
-    '@pages': pages,
-    '@shared': shared,
-    '@widgets': widgets,
+    "@app": app,
+    "@pages": pages,
+    "@shared": shared,
+    "@widgets": widgets,
+    "@entities": entities,
   },
 });

@@ -1,3 +1,4 @@
+import { Counter } from "@entities/Counter";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -7,6 +8,7 @@ export const MainPage: FC = () => {
   return (
     <>
       <p>{t("titlePage")}</p>
+      <Counter />
     </>
   );
 };

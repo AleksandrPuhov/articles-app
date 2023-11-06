@@ -15,6 +15,7 @@ export const webpackConf = ({ config }: { config: Configuration }) => {
     pages: path.resolve(__dirname, "..", "..", "src", "pages"),
     shared: path.resolve(__dirname, "..", "..", "src", "shared"),
     widgets: path.resolve(__dirname, "..", "..", "src", "widgets"),
+    entities: path.resolve(__dirname, "..", "..", "src", "entities"),
   };
 
   config.resolve.modules.push(paths.src);
@@ -25,6 +26,7 @@ export const webpackConf = ({ config }: { config: Configuration }) => {
     "@pages": paths.pages,
     "@shared": paths.shared,
     "@widgets": paths.widgets,
+    "@entities": paths.entities,
   };
 
   config.module.rules.push(buildScssLoader(true));
