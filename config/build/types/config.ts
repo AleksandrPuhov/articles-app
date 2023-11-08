@@ -10,6 +10,7 @@ export interface IBuildPaths {
   shared: string;
   widgets: string;
   entities: string;
+  features: string;
 }
 
 export interface IBuildEnv {

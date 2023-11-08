@@ -9,6 +9,7 @@ export const buildResolvers = ({
   shared,
   widgets,
   entities,
+  features,
 }: IBuildPaths): webpack.ResolveOptions => ({
   extensions: [".tsx", ".ts", ".js"],
   preferAbsolute: true,
@@ -19,5 +20,6 @@ export const buildResolvers = ({
     "@shared": shared,
     "@widgets": widgets,
     "@entities": entities,
+    "@features": features,
   },
 });

@@ -1,8 +1,8 @@
 {
+  "signIn": "Войти",
   "navbar": {
     "mainPageLink": "Главная",
-    "aboutPageLink": "О Сайте",
-    "signIn": "Войти"
+    "aboutPageLink": "О Сайте"
   },
   "sidebar": {
     "langSwich": "англ"
@@ -11,5 +11,9 @@
   "pageError": {
     "hasError": "Что-то пошло не так.",
     "reloadBtn": "Перезагрузить страницу"
+  },
+  "loginForm": {
+    "login": "Логин",
+    "pass": "Пароль"
   }
 }

@@ -4,15 +4,15 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@shared/lib/classNames/classNames";
 
 import cls from "./NavBar.module.scss";
-import { Modal } from "@shared/ui/Modal/Modal";
 import Button, { ButtonVariant } from "@shared/ui/Button/Button";
+import { LoginModal } from "@features/AuthByUserName";
 
 interface NavBarProps {
   className?: string;
 }
 
 const NavBar: FC<NavBarProps> = ({ className }) => {
-  const { t } = useTranslation("translation", { keyPrefix: "navbar" });
+  const { t } = useTranslation("translation");
 
   const [isAuthModal, setIsAuthModal] = useState(false);
 
@@ -30,9 +30,10 @@ const NavBar: FC<NavBarProps> = ({ className }) => {
         {t("signIn")}
       </Button>
 
-      <Modal onClose={() => setIsAuthModal(false)} isOpened={isAuthModal}>
-        <p>Test Text</p>
-      </Modal>
+      <LoginModal
+        onClose={() => setIsAuthModal(false)}
+        isOpened={isAuthModal}
+      />
     </div>
   );
 };

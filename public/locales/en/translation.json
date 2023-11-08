@@ -1,8 +1,8 @@
 {
+  "signIn": "Sign In",
   "navbar": {
     "mainPageLink": "Main",
-    "aboutPageLink": "About",
-    "signIn": "Sign In"
+    "aboutPageLink": "About"
   },
   "sidebar": {
     "langSwich": "ru"
@@ -11,5 +11,9 @@
   "pageError": {
     "hasError": "Something went wrong.",
     "reloadBtn": "Reload the page"
+  },
+  "loginForm": {
+    "login": "Login",
+    "pass": "Pass"
   }
 }
