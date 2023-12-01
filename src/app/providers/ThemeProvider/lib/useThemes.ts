@@ -16,7 +16,7 @@ export function useThemes(): UseThemesResult {
     setTheme(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     document.body.className = newTheme;
-  }, [theme]);
+  }, [setTheme, theme]);
 
   return {
     theme,

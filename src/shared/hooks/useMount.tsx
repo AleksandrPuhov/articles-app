@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 200;
 
 export const useMount = ({ opened }: { opened: boolean }) => {
   const [mounted, setMounted] = useState(false);
@@ -13,6 +13,7 @@ export const useMount = ({ opened }: { opened: boolean }) => {
         setMounted(false);
       }, ANIMATION_DELAY);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [opened]);
 
   return {

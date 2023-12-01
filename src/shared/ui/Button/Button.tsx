@@ -20,6 +20,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariant;
   iconSize?: ButtonIconSize;
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -27,6 +28,7 @@ const Button: FC<ButtonProps> = ({
   children,
   variant = ButtonVariant.PRIMARY,
   iconSize = ButtonIconSize.M,
+  disabled = false,
   ...otherProps
 }) => {
   const mods: Record<string, boolean> = {
@@ -36,6 +38,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       type="button"
+      disabled={disabled}
       {...otherProps}
       className={classNames([cls.btn, className, cls[variant]], mods)}
     >

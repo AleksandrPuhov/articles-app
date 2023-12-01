@@ -1,5 +1,8 @@
-import { Theme } from "@app/providers/ThemeProvider";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useMemo } from "react";
+
+import { Theme } from "@app/providers/ThemeProvider";
 
 import { classNames } from "@shared/lib/classNames/classNames";
 import { ThemeContext } from "@app/providers/ThemeProvider/lib/ThemeContext";

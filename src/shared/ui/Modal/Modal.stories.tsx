@@ -19,6 +19,12 @@ type Story = StoryObj<typeof meta>;
 
 export const ModalNormal: Story = {};
 
+export const ModalWithMaxWidth: Story = {
+  args: {
+    maxWidth: 600,
+  },
+};
+
 export const ModalDark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
 };

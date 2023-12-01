@@ -10,9 +10,15 @@ interface ModalProps {
   children: ReactNode;
   onClose: () => void;
   isOpened: boolean;
+  maxWidth?: number;
 }
 
-export const Modal: FC<ModalProps> = ({ children, onClose, isOpened }) => {
+export const Modal: FC<ModalProps> = ({
+  children,
+  onClose,
+  isOpened,
+  maxWidth = 400,
+}) => {
   const { mounted } = useMount({ opened: isOpened });
 
   if (!isOpened && !mounted) {
@@ -26,7 +32,9 @@ export const Modal: FC<ModalProps> = ({ children, onClose, isOpened }) => {
 
   return (
     <OverlayingPopup onClose={onClose} isOpened={!!isOpened || !!mounted}>
-      <div className={classNames([cls.modal], mods)}>{children}</div>
+      <div className={classNames([cls.modal], mods)} style={{ maxWidth }}>
+        {children}
+      </div>
     </OverlayingPopup>
   );
 };

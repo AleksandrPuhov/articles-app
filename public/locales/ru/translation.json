@@ -1,5 +1,6 @@
 {
   "signIn": "Войти",
+  "signOut": "Выйти",
   "navbar": {
     "mainPageLink": "Главная",
     "aboutPageLink": "О Сайте"
@@ -14,6 +15,7 @@
   },
   "loginForm": {
     "login": "Логин",
-    "pass": "Пароль"
+    "pass": "Пароль",
+    "errorText": "неверный пароль или логин"
   }
 }

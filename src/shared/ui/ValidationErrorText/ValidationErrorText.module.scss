@@ -1,0 +1,14 @@
+.error {
+  position: absolute;
+  display: block;
+  font: var(--font-s);
+  color: var(--text-error-color);
+}
+
+.errorBottom {
+  top: 100%;
+}
+
+.errorTop {
+  bottom: 110%;
+}

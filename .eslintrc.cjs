@@ -8,8 +8,11 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
-  rules: {},
+  plugins: ["@typescript-eslint", "react-hooks"],
+  rules: {
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+  },
   globals: {
     __IS_DEV__: true,
   },

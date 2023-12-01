@@ -42,9 +42,24 @@ export const Outline: Story = {
   },
 };
 
+export const OutlineDisabled: Story = {
+  args: {
+    variant: ButtonVariant.OUTLINE,
+    disabled: true,
+  },
+};
+
 export const OutlineDark: Story = {
   args: {
     variant: ButtonVariant.OUTLINE,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const OutlineDisabledDark: Story = {
+  args: {
+    variant: ButtonVariant.OUTLINE,
+    disabled: true,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };

@@ -1,5 +1,6 @@
 {
   "signIn": "Sign In",
+  "signOut": "Sign Out",
   "navbar": {
     "mainPageLink": "Main",
     "aboutPageLink": "About"
@@ -14,6 +15,7 @@
   },
   "loginForm": {
     "login": "Login",
-    "pass": "Pass"
+    "pass": "Pass",
+    "errorText": "error in login or pass"
   }
 }
