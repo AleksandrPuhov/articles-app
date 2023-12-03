@@ -35,7 +35,7 @@ export const LoginModalWithError: Story = {
   decorators: [
     StoreDecorator(
       {
-        login: { username: "test", password: "test", error: "Test error text" },
+        login: { username: "test", password: "test", error: "loginError" },
       },
       {
         login: loginReducer,

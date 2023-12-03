@@ -1,10 +1,10 @@
 import { Preview } from "@storybook/react";
 
-import { Theme } from "@app/providers/ThemeProvider";
-import { I18NextDecorator } from "@shared/config/storybook/I18NextDecorator";
-import { RouterDecorator } from "@shared/config/storybook/RouterDecorator";
-import { StyleDecorator } from "@shared/config/storybook/StyleDecorator";
-import { ThemeDecorator } from "@shared/config/storybook/ThemeDecorator";
+import { Theme } from "../../src/app/providers/ThemeProvider";
+import { I18NextDecorator } from "../../src/shared/config/storybook/I18NextDecorator";
+import { RouterDecorator } from "../../src/shared/config/storybook/RouterDecorator";
+import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator";
+import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator";
 
 const preview: Preview = {
   parameters: {
