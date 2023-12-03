@@ -78,7 +78,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ onClose }) => {
             {t("signIn")}
           </Button>
           <ValidationErrorText
-            validationText={loginState?.error || ""}
+            validationText={loginState?.error ? t("loginForm.errorText") : ""}
             onTop={true}
           />
         </div>

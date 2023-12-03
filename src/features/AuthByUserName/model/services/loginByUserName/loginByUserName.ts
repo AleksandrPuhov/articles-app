@@ -1,14 +1,13 @@
 import { User } from "@entities/User";
 import { userActions } from "@entities/User/model/slice/userSlice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import i18n from "@shared/config/i18n/i18n";
 import { USER_LOCALSTORAGE_KEY } from "@shared/consts/localstorageConst";
 import axios from "axios";
 
 interface LoginByUserNameProps {
   username: string;
   password: string;
-  onSuccess: () => void;
+  onSuccess?: () => void;
 }
 
 export const loginByUserName = createAsyncThunk<
@@ -34,12 +33,12 @@ export const loginByUserName = createAsyncThunk<
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(user));
       dispatch(userActions.setAuthData(user));
-      onSuccess();
+      if (onSuccess) onSuccess();
 
       return response.data;
     } catch (err) {
       console.log(err);
-      return rejectWithValue(i18n.t("loginForm.errorText"));
+      return rejectWithValue("loginError");
     }
   }
 );
