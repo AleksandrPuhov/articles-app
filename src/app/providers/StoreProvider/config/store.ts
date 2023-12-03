@@ -5,8 +5,12 @@ import { userReducer } from "@entities/User";
 import { useDispatch } from "react-redux";
 import { createReducerManager } from "./reducerManager";
 
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+) {
   const rootreducer: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
   };
