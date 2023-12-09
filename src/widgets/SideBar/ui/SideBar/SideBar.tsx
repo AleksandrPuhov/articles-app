@@ -1,30 +1,40 @@
-import { FC, useState } from "react";
+import { FC, memo, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import ArrowRight from "@shared/assets/icons/arrow-right.svg";
+import cls from "./SideBar.module.scss";
 
-import Home from "@shared/assets/icons/home.svg";
-import About from "@shared/assets/icons/about.svg";
+import ArrowRight from "@shared/assets/icons/arrow-right.svg";
 
 import { classNames } from "@shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "@widgets/ThemeSwitcher";
 import { LangSwitcher } from "@widgets/LangSwitcher";
 import Button, { ButtonVariant } from "@shared/ui/Button/Button";
-import AppLink from "@shared/ui/AppLink/AppLink";
-import { RoutePath } from "@app/router/routeConfig/routeConfig";
-
-import cls from "./SideBar.module.scss";
+import { sideBarItemsList } from "@widgets/SideBar/model/items";
+import { SideBarItem } from "../SideBarItem/SideBarItem";
 
 interface SideBarProps {
   className?: string;
 }
 
-const SideBar: FC<SideBarProps> = ({ className }) => {
+const SideBar: FC<SideBarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapset = () => setCollapsed((prev) => !prev);
 
   const { t } = useTranslation("translation", { keyPrefix: "navbar" });
+
+  const itemsList = useMemo(() => {
+    return sideBarItemsList.map((link) => {
+      return (
+        <SideBarItem
+          collapsed={collapsed}
+          path={link.path}
+          text={t(link.textKey)}
+          Icon={link.icon}
+        />
+      );
+    });
+  }, [collapsed, t]);
 
   return (
     <div
@@ -33,28 +43,7 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
       })}
       data-testid="sidebar-testid"
     >
-      <div className={cls.pagesLinks}>
-        <AppLink to={RoutePath.Main} className={cls.pageLink}>
-          <Home className={cls.iconPage} />
-          <span
-            className={classNames([cls.pageLinkText], {
-              [cls.pageLinkTextCollapsed]: collapsed,
-            })}
-          >
-            {t("mainPageLink")}
-          </span>
-        </AppLink>
-        <AppLink to={RoutePath.About} className={cls.pageLink}>
-          <About className={cls.iconPage} />
-          <span
-            className={classNames([cls.pageLinkText], {
-              [cls.pageLinkTextCollapsed]: collapsed,
-            })}
-          >
-            {t("aboutPageLink")}
-          </span>
-        </AppLink>
-      </div>
+      <div className={cls.pagesLinks}>{itemsList}</div>
       <div
         className={classNames([cls.swichers], {
           [cls.swichersCollapsed]: collapsed,
@@ -78,6 +67,6 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
       </div>
     </div>
   );
-};
+});
 
 export default SideBar;

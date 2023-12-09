@@ -4,8 +4,8 @@ import { Outlet } from "react-router-dom";
 import { NavBar } from "@widgets/NavBar";
 import { SideBar } from "@widgets/SideBar";
 import Loader from "@shared/ui/Loader/Loader";
-import { useAppDispatch } from "@app/providers/StoreProvider/config/store";
 import { userActions } from "@entities/User/model/slice/userSlice";
+import { useAppDispatch } from "@app/providers/StoreProvider";
 
 export const Layout: FC = () => {
   const dispatch = useAppDispatch();

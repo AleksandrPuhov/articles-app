@@ -9,12 +9,12 @@ import Input from "@shared/ui/Input/Input";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUserName } from "../../model/services/loginByUserName/loginByUserName";
-import { useAppDispatch } from "@app/providers/StoreProvider/config/store";
 import { ValidationErrorText } from "@shared/ui/ValidationErrorText/ValidationErrorText";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "@app/providers/StoreProvider";
 
 interface LoginFormProps {
   onClose: () => void;

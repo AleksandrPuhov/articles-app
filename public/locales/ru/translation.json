@@ -3,7 +3,8 @@
   "signOut": "Выйти",
   "navbar": {
     "mainPageLink": "Главная",
-    "aboutPageLink": "О Сайте"
+    "aboutPageLink": "О Сайте",
+    "profilePageLink": "Профиль"
   },
   "sidebar": {
     "langSwich": "англ"

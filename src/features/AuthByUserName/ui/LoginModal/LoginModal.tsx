@@ -1,4 +1,4 @@
-import { FC, Suspense, lazy } from "react";
+import { FC, Suspense, lazy, memo } from "react";
 
 import { Modal } from "@shared/ui/Modal/Modal";
 import Loader from "@shared/ui/Loader/Loader";
@@ -14,7 +14,7 @@ interface LoginModalProps {
   isOpened: boolean;
 }
 
-export const LoginModal: FC<LoginModalProps> = ({ onClose, isOpened }) => {
+export const LoginModal: FC<LoginModalProps> = memo(({ onClose, isOpened }) => {
   return (
     <Modal onClose={onClose} isOpened={isOpened}>
       <Suspense fallback={<Loader />}>
@@ -22,4 +22,4 @@ export const LoginModal: FC<LoginModalProps> = ({ onClose, isOpened }) => {
       </Suspense>
     </Modal>
   );
-};
+});

@@ -1,17 +1,17 @@
-import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC, memo } from "react";
+import { useTranslation } from "react-i18next";
 
-import { classNames } from '@shared/lib/classNames/classNames';
-import Button, { ButtonVariant } from '@shared/ui/Button/Button';
+import { classNames } from "@shared/lib/classNames/classNames";
+import Button, { ButtonVariant } from "@shared/ui/Button/Button";
 
-import cls from './PageError.module.scss';
+import cls from "./PageError.module.scss";
 
 interface PageErrorProps {
   className?: string;
 }
 
-const PageError: FC<PageErrorProps> = ({ className }) => {
-  const { t } = useTranslation('translation', { keyPrefix: 'pageError' });
+const PageError: FC<PageErrorProps> = memo(({ className }) => {
+  const { t } = useTranslation("translation", { keyPrefix: "pageError" });
 
   const reloadPage = () => {
     window.location.reload();
@@ -19,12 +19,12 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
 
   return (
     <div className={classNames([cls.pageError, className])}>
-      <p>{t('hasError')}</p>
+      <p>{t("hasError")}</p>
       <Button variant={ButtonVariant.OUTLINE} onClick={reloadPage}>
-        {t('reloadBtn')}
+        {t("reloadBtn")}
       </Button>
     </div>
   );
-};
+});
 
 export default PageError;

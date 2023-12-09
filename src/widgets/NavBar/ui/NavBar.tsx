@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { classNames } from "@shared/lib/classNames/classNames";
@@ -8,14 +8,14 @@ import Button, { ButtonVariant } from "@shared/ui/Button/Button";
 import { LoginModal } from "@features/AuthByUserName";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@entities/User";
-import { useAppDispatch } from "@app/providers/StoreProvider/config/store";
 import { userActions } from "@entities/User/model/slice/userSlice";
+import { useAppDispatch } from "@app/providers/StoreProvider";
 
 interface NavBarProps {
   className?: string;
 }
 
-const NavBar: FC<NavBarProps> = ({ className }) => {
+const NavBar: FC<NavBarProps> = memo(({ className }) => {
   const { t } = useTranslation("translation");
   const dispatch = useAppDispatch();
 
@@ -61,6 +61,6 @@ const NavBar: FC<NavBarProps> = ({ className }) => {
       )}
     </div>
   );
-};
+});
 
 export default NavBar;

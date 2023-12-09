@@ -2,7 +2,7 @@ import { StateSchema } from "@app/providers/StoreProvider";
 import { DeepPartial } from "@reduxjs/toolkit";
 import { getLoginState } from "./getLoginState";
 
-describe("getCounter", () => {
+describe("getLoginState", () => {
   test("should return test values", () => {
     const state: DeepPartial<StateSchema> = {
       login: {

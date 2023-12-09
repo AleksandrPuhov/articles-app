@@ -3,7 +3,7 @@ import {
   StateSchema,
   StateSchemaKey,
 } from "./config/StateSchema";
-import { createReduxStore } from "./config/store";
+import { createReduxStore, useAppDispatch } from "./config/store";
 import StoreProvider from "./ui/StoreProvider";
 
 export {
@@ -12,4 +12,5 @@ export {
   StateSchema,
   ReduxStoreWithManager,
   StateSchemaKey,
+  useAppDispatch,
 };

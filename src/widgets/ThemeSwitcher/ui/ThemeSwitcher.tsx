@@ -1,22 +1,22 @@
-import { FC } from 'react';
+import { FC, memo } from "react";
 
-import LightIcon from '@shared/assets/icons/icon-sun.svg';
-import DarkIcon from '@shared/assets/icons/icon-moon.svg';
+import LightIcon from "@shared/assets/icons/icon-sun.svg";
+import DarkIcon from "@shared/assets/icons/icon-moon.svg";
 
-import { classNames } from '@shared/lib/classNames/classNames';
-import { Theme, useThemes } from '@app/providers/ThemeProvider';
+import { classNames } from "@shared/lib/classNames/classNames";
+import { Theme, useThemes } from "@app/providers/ThemeProvider";
 import Button, {
   ButtonIconSize,
   ButtonVariant,
-} from '@shared/ui/Button/Button';
+} from "@shared/ui/Button/Button";
 
-import cls from './ThemeSwitcher.module.scss';
+import cls from "./ThemeSwitcher.module.scss";
 
 interface ThemeSwitcherProps {
   className?: string;
 }
 
-const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
   const { theme, toggleTheme } = useThemes();
 
   return (
@@ -33,6 +33,6 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
       )}
     </Button>
   );
-};
+});
 
 export default ThemeSwitcher;

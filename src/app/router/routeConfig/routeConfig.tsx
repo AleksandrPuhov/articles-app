@@ -2,14 +2,16 @@ import { Layout } from "@app/layout/ui/Layout";
 import { NotFoundPage } from "@pages/NotFoundPage";
 
 export enum AppRoutes {
-  Main = "Main",
-  About = "About",
-  NotFound = "NotFound",
+  Main = "/",
+  About = "/about",
+  Profile = "/profile",
+  NotFound = "*",
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.Main]: "/",
   [AppRoutes.About]: "/about",
+  [AppRoutes.Profile]: "/profile",
   [AppRoutes.NotFound]: "*",
 };
 
@@ -30,6 +32,13 @@ export const routeConfig = [
         async lazy() {
           const { AboutPage } = await import("@pages/AboutPage");
           return { Component: AboutPage };
+        },
+      },
+      {
+        path: RoutePath[AppRoutes.Profile],
+        async lazy() {
+          const { ProfilePage } = await import("@pages/ProfilePage");
+          return { Component: ProfilePage };
         },
       },
     ],

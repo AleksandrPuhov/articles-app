@@ -3,7 +3,8 @@
   "signOut": "Sign Out",
   "navbar": {
     "mainPageLink": "Main",
-    "aboutPageLink": "About"
+    "aboutPageLink": "About",
+    "profilePageLink": "Profile"
   },
   "sidebar": {
     "langSwich": "ru"
