@@ -7,17 +7,18 @@ import {
 import { ReducerManager, StateSchema, StateSchemaKey } from "./StateSchema";
 
 export function createReducerManager(
-  initialReducers: ReducersMapObject<StateSchema>
+  initialReducers: ReducersMapObject<StateSchema, AnyAction>
 ): ReducerManager {
   const reducers = { ...initialReducers };
 
-  let combinedReducer = combineReducers(reducers);
+  let combinedReducer: Reducer<StateSchema, AnyAction> =
+    combineReducers(reducers);
   let keysToRemove: StateSchemaKey[] = [];
 
   return {
     getReducerMap: () => reducers,
-    reduce: (state: StateSchema, action: AnyAction) => {
-      if (keysToRemove.length > 0) {
+    reduce: (state: StateSchema | undefined, action: AnyAction) => {
+      if (keysToRemove.length > 0 && state) {
         state = { ...state };
         for (const key of keysToRemove) {
           delete state[key];

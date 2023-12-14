@@ -1,10 +1,10 @@
-import axios from "axios";
 import { loginByUserName } from "./loginByUserName";
 import { userActions } from "@entities/User";
 import { testAsyncThunk } from "@shared/lib/tests/testAsyncThunk";
+import { api } from "@shared/api/api";
 
-jest.mock("axios");
-const mockedAxios = jest.mocked(axios);
+jest.mock("@shared/api/api");
+const mockedAxios = jest.mocked(api);
 
 describe("loginByUserName", () => {
   test("success login", async () => {
@@ -12,11 +12,9 @@ describe("loginByUserName", () => {
       id: 1,
       username: "test_username",
     };
-    mockedAxios.post.mockReturnValue(
-      Promise.resolve({
-        data: userValue,
-      })
-    );
+    mockedAxios.post.mockResolvedValue({
+      data: userValue,
+    });
 
     const { callThunk, dispatch } = testAsyncThunk(loginByUserName);
     const result = await callThunk({

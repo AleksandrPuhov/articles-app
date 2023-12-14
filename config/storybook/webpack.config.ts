@@ -19,33 +19,47 @@ export const webpackConf = ({ config }: { config: Configuration }) => {
     features: path.resolve(__dirname, "..", "..", "src", "features"),
   };
 
-  config.resolve.modules.push(paths.src);
-  config.resolve.extensions.push(".tsx", ".ts", ".js");
+  if (config?.resolve?.modules) {
+    config.resolve.modules = [
+      path.resolve(__dirname, "../../src"),
+      "node_modules",
+    ];
+    config.resolve.modules.push(paths.src);
+  }
 
-  config.resolve.alias = {
-    "@app": paths.app,
-    "@pages": paths.pages,
-    "@shared": paths.shared,
-    "@widgets": paths.widgets,
-    "@entities": paths.entities,
-    "@features": paths.features,
-  };
+  config?.resolve?.extensions &&
+    config.resolve.extensions.push(".tsx", ".ts", ".js");
 
-  config.module.rules.push(buildScssLoader(true));
+  if (config?.resolve?.alias) {
+    config.resolve.alias = {
+      "@app": paths.app,
+      "@pages": paths.pages,
+      "@shared": paths.shared,
+      "@widgets": paths.widgets,
+      "@entities": paths.entities,
+      "@features": paths.features,
+    };
+  }
 
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
-    return rule;
-  });
-  config.module.rules.push(buildSvgLoader());
+  if (config?.module?.rules) {
+    config.module.rules.push(buildScssLoader(true));
 
-  config.plugins.push(
-    new DefinePlugin({
-      __IS_DEV__: true,
-    })
-  );
+    const rules = config.module.rules as RuleSetRule[];
+    config.module!.rules = rules.map((rule) =>
+      /svg/.test(rule.test as string) ? { ...rule, exclude: /\.svg$/i } : rule
+    );
+
+    config.module.rules.push(buildSvgLoader());
+  }
+
+  config?.plugins &&
+    config.plugins.push(
+      new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify(""),
+        __PROJECT__: JSON.stringify("storybook"),
+      })
+    );
 
   return config;
 };

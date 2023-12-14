@@ -16,6 +16,7 @@ export interface IBuildPaths {
 export interface IBuildEnv {
   PORT: number;
   mode: IBuildMode;
+  apiUrl: string;
 }
 
 export interface IBuildOptions {
@@ -23,4 +24,6 @@ export interface IBuildOptions {
   paths: IBuildPaths;
   isDev: boolean;
   port: number;
+  apiUrl: string;
+  project: "storybook" | "frontend" | "jest";
 }

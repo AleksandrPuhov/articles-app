@@ -44,7 +44,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ onClose }) => {
   );
 
   const onLoginClick = useCallback(() => {
-    if (loginState?.username && loginState?.password)
+    if (loginState?.username && loginState?.password) {
       dispatch(
         loginByUserName({
           username: loginState.username,
@@ -52,6 +52,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ onClose }) => {
           onSuccess: onClose,
         })
       );
+    }
   }, [dispatch, loginState?.password, loginState?.username, onClose]);
 
   return (

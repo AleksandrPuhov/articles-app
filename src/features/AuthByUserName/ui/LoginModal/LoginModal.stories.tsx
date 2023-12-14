@@ -22,7 +22,7 @@ export const LoginModalNormal: Story = {
   decorators: [
     StoreDecorator(
       {
-        login: { username: "test", password: "test" },
+        login: { username: "test", password: "test", isLoading: false },
       },
       {
         login: loginReducer,
@@ -35,7 +35,12 @@ export const LoginModalWithError: Story = {
   decorators: [
     StoreDecorator(
       {
-        login: { username: "test", password: "test", error: "loginError" },
+        login: {
+          username: "test",
+          password: "test",
+          error: "loginError",
+          isLoading: false,
+        },
       },
       {
         login: loginReducer,
@@ -62,7 +67,7 @@ export const LoginModalDark: Story = {
     ThemeDecorator(Theme.DARK),
     StoreDecorator(
       {
-        login: { username: "test", password: "test" },
+        login: { username: "test", password: "test", isLoading: false },
       },
       {
         login: loginReducer,
@@ -76,7 +81,12 @@ export const LoginModalDarkWithError: Story = {
     ThemeDecorator(Theme.DARK),
     StoreDecorator(
       {
-        login: { username: "test", password: "test", error: "Test error text" },
+        login: {
+          username: "test",
+          password: "test",
+          error: "Test error text",
+          isLoading: false,
+        },
       },
       {
         login: loginReducer,

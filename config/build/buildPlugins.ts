@@ -1,15 +1,17 @@
-import webpack, { WebpackPluginInstance } from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import webpack, { WebpackPluginInstance } from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
-import { IBuildOptions } from './types/config';
+import { IBuildOptions } from "./types/config";
 
 export const buildPlugins = ({
   paths,
   isDev,
+  apiUrl,
+  project,
 }: IBuildOptions): webpack.WebpackPluginInstance[] => {
   const plugins = [
     new HtmlWebpackPlugin({
@@ -17,11 +19,13 @@ export const buildPlugins = ({
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[id].[contenthash:8].css',
+      filename: "css/[name].[contenthash:8].css",
+      chunkFilename: "css/[id].[contenthash:8].css",
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
   ];
 

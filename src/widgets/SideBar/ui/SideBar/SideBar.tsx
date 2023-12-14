@@ -27,6 +27,7 @@ const SideBar: FC<SideBarProps> = memo(({ className }) => {
     return sideBarItemsList.map((link) => {
       return (
         <SideBarItem
+          key={link.path}
           collapsed={collapsed}
           path={link.path}
           text={t(link.textKey)}

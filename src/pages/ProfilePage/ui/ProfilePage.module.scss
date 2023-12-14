@@ -1,0 +1,14 @@
+.wrapp {
+  max-width: 400px;
+  padding: 20px;
+}
+
+.header {
+  font: var(--font-l);
+}
+
+.headerWrapp {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}

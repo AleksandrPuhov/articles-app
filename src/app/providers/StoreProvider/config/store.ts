@@ -1,21 +1,27 @@
-import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
+import {
+  AnyAction,
+  DeepPartial,
+  ReducersMapObject,
+  configureStore,
+} from "@reduxjs/toolkit";
 import { StateSchema } from "./StateSchema";
 import { userReducer } from "@entities/User";
 import { useDispatch } from "react-redux";
 import { createReducerManager } from "./reducerManager";
+import { ReducersList } from "@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 export function createReduxStore(
-  initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>
+  initialState?: DeepPartial<StateSchema>,
+  asyncReducers?: ReducersList
 ) {
-  const rootreducer: ReducersMapObject<StateSchema> = {
+  const rootreducer: ReducersMapObject<StateSchema, AnyAction> = {
     ...asyncReducers,
     user: userReducer,
   };
 
   const reducerManager = createReducerManager(rootreducer);
 
-  const store = configureStore<StateSchema>({
+  const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,

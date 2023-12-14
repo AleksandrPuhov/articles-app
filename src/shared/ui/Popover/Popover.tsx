@@ -16,7 +16,9 @@ export const Popover: FC<PopoverProps> = ({
   // onClose,
   // isOpened,
 }) => {
-  const [popperElement, setPopperElement] = useState(null);
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  );
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
       {

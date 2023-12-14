@@ -1,0 +1,25 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  font: var(--font-s);
+}
+
+.select {
+  margin-top: 3px;
+  padding: 10px 20px 10px 10px;
+  font: var(--font-m);
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid var(--secondary-color);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:focus {
+    border-color: var(--special-color);
+    box-shadow: 0 0 0 2px var(--special-color);
+  }
+}
+
+.option {
+  cursor: pointer;
+}

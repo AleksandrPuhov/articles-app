@@ -2,12 +2,14 @@ import { FC } from "react";
 import { Provider } from "react-redux";
 import { createReduxStore } from "../config/store";
 import { StateSchema } from "../config/StateSchema";
-import { ReducersMapObject } from "@reduxjs/toolkit";
+import { DeepPartial } from "@reduxjs/toolkit";
+import { ReducersList } from "@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 interface Props {
   children: React.ReactNode;
-  initialState?: StateSchema;
-  asyncReducers?: ReducersMapObject<StateSchema>;
+  initialState?: DeepPartial<StateSchema>;
+  // asyncReducers?: ReducersMapObject<StateSchema, AnyAction>;
+  asyncReducers?: ReducersList;
 }
 
 const StoreProvider: FC<Props> = ({

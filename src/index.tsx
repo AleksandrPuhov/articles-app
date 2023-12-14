@@ -5,7 +5,7 @@ import "./app/styles/index.scss";
 
 import App from "@app/App";
 
-createRoot(document.getElementById("app")).render(
+createRoot(document.getElementById("app") as Element).render(
   <StrictMode>
     <App />
   </StrictMode>
