@@ -4,7 +4,8 @@
   "navbar": {
     "mainPageLink": "Main",
     "aboutPageLink": "About",
-    "profilePageLink": "Profile"
+    "profilePageLink": "Profile",
+    "articlesPageLink": "Articles"
   },
   "sidebar": {
     "langSwich": "ru"

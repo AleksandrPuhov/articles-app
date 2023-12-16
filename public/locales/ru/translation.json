@@ -4,7 +4,8 @@
   "navbar": {
     "mainPageLink": "Главная",
     "aboutPageLink": "О Сайте",
-    "profilePageLink": "Профиль"
+    "profilePageLink": "Профиль",
+    "articlesPageLink": "Статьи"
   },
   "sidebar": {
     "langSwich": "англ"

@@ -1,5 +1,6 @@
 import { FC, memo, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 import cls from "./SideBar.module.scss";
 
@@ -11,6 +12,7 @@ import { LangSwitcher } from "@widgets/LangSwitcher";
 import Button, { ButtonVariant } from "@shared/ui/Button/Button";
 import { sideBarItemsList } from "@widgets/SideBar/model/items";
 import { SideBarItem } from "../SideBarItem/SideBarItem";
+import { getUserAuthData } from "@entities/User";
 
 interface SideBarProps {
   className?: string;
@@ -19,12 +21,20 @@ interface SideBarProps {
 const SideBar: FC<SideBarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
 
+  const userAuthData = useSelector(getUserAuthData);
+
   const toggleCollapset = () => setCollapsed((prev) => !prev);
 
   const { t } = useTranslation("translation", { keyPrefix: "navbar" });
 
   const itemsList = useMemo(() => {
-    return sideBarItemsList.map((link) => {
+    let _items = sideBarItemsList;
+
+    if (!userAuthData) {
+      _items = _items.filter((item) => !item?.isAuth);
+    }
+
+    return _items.map((link) => {
       return (
         <SideBarItem
           key={link.path}
@@ -35,7 +45,7 @@ const SideBar: FC<SideBarProps> = memo(({ className }) => {
         />
       );
     });
-  }, [collapsed, t]);
+  }, [collapsed, t, userAuthData]);
 
   return (
     <div

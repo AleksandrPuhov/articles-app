@@ -1,15 +1,17 @@
 import { FC, memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { classNames } from "@shared/lib/classNames/classNames";
 
 import cls from "./NavBar.module.scss";
 import Button, { ButtonVariant } from "@shared/ui/Button/Button";
 import { LoginModal } from "@features/AuthByUserName";
-import { useSelector } from "react-redux";
 import { getUserAuthData } from "@entities/User";
 import { userActions } from "@entities/User/model/slice/userSlice";
 import { useAppDispatch } from "@app/providers/StoreProvider";
+import { USER_LOCALSTORAGE_KEY } from "@shared/consts/localstorageConst";
 
 interface NavBarProps {
   className?: string;
@@ -18,6 +20,7 @@ interface NavBarProps {
 const NavBar: FC<NavBarProps> = memo(({ className }) => {
   const { t } = useTranslation("translation");
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const userAuthData = useSelector(getUserAuthData);
 
@@ -28,8 +31,10 @@ const NavBar: FC<NavBarProps> = memo(({ className }) => {
   }, []);
 
   const onLogout = useCallback(() => {
+    localStorage.removeItem(USER_LOCALSTORAGE_KEY);
     dispatch(userActions.logout());
-  }, [dispatch]);
+    navigate("/");
+  }, [dispatch, navigate]);
 
   return (
     <div className={classNames([cls.navbar, className])}>
