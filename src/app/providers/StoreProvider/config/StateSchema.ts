@@ -1,3 +1,4 @@
+import { ArticleDetailSchema } from "@entities/Article";
 import { ProfileSchema } from "@entities/Profile";
 import { UserSchema } from "@entities/User";
 import { LoginSchema } from "@features/AuthByUserName";
@@ -12,6 +13,7 @@ export interface StateSchema {
   user: UserSchema;
   login?: LoginSchema;
   profile?: ProfileSchema;
+  articleDetail?: ArticleDetailSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

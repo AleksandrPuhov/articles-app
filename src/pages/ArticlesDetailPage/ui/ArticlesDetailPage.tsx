@@ -1,32 +1,24 @@
 import { FC } from "react";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import cls from "./ArticlesDetailPage.module.scss";
 
+import { ArticleDetails } from "@entities/Article";
+
 export const ArticlesDetailPage: FC = () => {
-  // const dispatch = useAppDispatch();
-  // const { t } = useTranslation("profile");
-
-  // const profile = useSelector(getProfileData);
-  // const profileReadOnly = useSelector(getProfileIsReadOnly);
-
-  // useEffect(() => {
-  //   if (__PROJECT__ !== "storybook") {
-  //     dispatch(fetchProfileData());
-  //   }
-  // }, [dispatch]);
+  const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation("article");
 
   return (
     <div className={cls.wrapp}>
-      ArticlesDetailPage
-      {/* <div className={cls.headerWrapp}>
-          <p className={cls.header}>{t("title")}</p>
-          <Button variant={ButtonVariant.OUTLINE}>{t("editBtn")}</Button>
-        </div>
-        {profile ? (
-          <ProfileCard profile={profile} readOnly={profileReadOnly} />
-        ) : (
-          <Loader />
-        )} */}
+      {id ? (
+        <ArticleDetails id={id} />
+      ) : (
+        <>
+          <p>{t("articleNotFound")}</p>
+        </>
+      )}
     </div>
   );
 };
