@@ -17,6 +17,8 @@ export const webpackConf = ({ config }: { config: Configuration }) => {
     widgets: path.resolve(__dirname, "..", "..", "src", "widgets"),
     entities: path.resolve(__dirname, "..", "..", "src", "entities"),
     features: path.resolve(__dirname, "..", "..", "src", "features"),
+    locales: path.resolve(__dirname, "..", "..", "src"),
+    buildLocales: path.resolve(__dirname, "..", "..", "src"),
   };
 
   if (config?.resolve?.modules) {

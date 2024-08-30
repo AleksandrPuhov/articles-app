@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 
 import { IBuildOptions } from "./types/config";
 
@@ -33,6 +34,12 @@ export const buildPlugins = ({
     // plugins.push(new webpack.HotModuleReplacementPlugin());
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+  } else {
+    plugins.push(
+      new CopyPlugin({
+        patterns: [{ from: paths.locales, to: paths.buildLocales }],
+      })
+    );
   }
   return plugins as WebpackPluginInstance[];
 };

@@ -17,6 +17,8 @@ export default (env: IBuildEnv) => {
     widgets: path.resolve(__dirname, "src", "widgets"),
     entities: path.resolve(__dirname, "src", "entities"),
     features: path.resolve(__dirname, "src", "features"),
+    locales: path.resolve(__dirname, "public", "locales"),
+    buildLocales: path.resolve(__dirname, "build", "locales"),
   };
 
   const mode = env.mode || "development";

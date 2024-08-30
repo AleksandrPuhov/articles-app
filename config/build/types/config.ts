@@ -11,6 +11,8 @@ export interface IBuildPaths {
   widgets: string;
   entities: string;
   features: string;
+  locales: string;
+  buildLocales: string;
 }
 
 export interface IBuildEnv {
